@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Details = async ()=>{
+const Details = ()=>{
      return (
          
         <h1>This is detail </h1>  )
