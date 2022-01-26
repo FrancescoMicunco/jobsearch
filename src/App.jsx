@@ -9,25 +9,28 @@ import {connect} from 'react-redux'
 import { setJobsAction } from './redux/actions';
 
 
-const mapStateToProps = (state)=>({
-    jobs:state.jobs.jobs
-})
+// const mapStateToProps = (state)=>({
+//     jobs:state.jobs.jobs
+// })
 
-const mapDispatchToProps =(dispatch)=>({
-    setJobs:(jobs)=>{
-        dispatch(setJobsAction(jobs))
-    }
-})
+// const mapDispatchToProps =(dispatch)=>({
+//     setJobs:(jobs)=>{
+//         dispatch(setJobsAction(jobs))
+//     }
+// })
 
 
 function App() {
 
     // const debounceSearch = useDebounce(search, 500);
 const [search, setSearch]= useState("")
+const [jobs, setJobs] = useState([])
+
+
     const getJobs = async () => {
         
         try {
-            const res = await fetch(`https://strive-jobs-api.herokuapp.com/jobs`)
+            const res = await fetch(`https://strive-jobs-api.herokuapp.com/jobs?=search${search}`)
             if (res.ok) {
                 const data = await res.json()
                 console.log(data)
@@ -84,4 +87,4 @@ getJobs()
     );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default (App);
