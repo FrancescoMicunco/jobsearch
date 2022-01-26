@@ -7,9 +7,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { useDebounce } from 'use-debounce'
 
 function App() {
-    const [jobs, setJobs] = useState([])
-    const [search, setSearch] = useState("")
-
+ 
     const debounceSearch = useDebounce(search, 500);
 
     const getJobs = async () => {
