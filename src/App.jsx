@@ -1,15 +1,29 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import JobList from './pages/Joblist'
 import Detail from './pages/Details';
-import { Container, Row, Col, Form, Button, Table } from 'react-bootstrap'
-import { useState, useEffect, useCallback } from 'react'
+import { Container, Row, Col, Form } from 'react-bootstrap'
+import { useEffect, useState } from 'react'
 import { useDebounce } from 'use-debounce'
+import {connect} from 'react-redux'
+import { setJobsAction } from './redux/actions';
+
+
+const mapStateToProps = (state)=>({
+    jobs:state.jobs.jobs
+})
+
+const mapDispatchToProps =(dispatch)=>({
+    setJobs:(jobs)=>{
+        dispatch(setJobsAction(jobs))
+    }
+})
+
 
 function App() {
- 
-    const debounceSearch = useDebounce(search, 500);
 
+    // const debounceSearch = useDebounce(search, 500);
+const [search, setSearch]= useState("")
     const getJobs = async () => {
         
         try {
@@ -48,7 +62,7 @@ getJobs()
                 <hr />
                 <Row style={{ display: "flex" }}>
                     <Col sm={12} className='text-center' style={{ marginRight: "3rem", marginTop: "3rem" }}>
-                        <Form onChange={(e) => setSearch(e.target.value)}>
+                        <Form onKeyDown={(e) => {if(e.key === 'Enter'){setSearch(e.target.value)}}}>
                             <Form.Control
                                 className="mb-2 mr-sm-2"
                                 id="search"
@@ -70,4 +84,4 @@ getJobs()
     );
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
