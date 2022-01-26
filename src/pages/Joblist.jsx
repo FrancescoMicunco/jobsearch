@@ -1,29 +1,36 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Table } from 'react-bootstrap'
 
 
 
 const Joblist = ({jobs})=>{
-     console.log("this is jobs in JobList array", jobs.data)
+     
      return (
           <>
      
-     <div>
-
-
-     {jobs.data.slice(0,10).map((j, i)=>
+     <Table striped bordered hover>
+  <thead>
+    <tr>
+     <th>Title</th>
+      <th>Company</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+          {jobs.map((j, i)=>
      <tbody>
      <tr key={i}>
      
      <td>{j.title}</td>
      <td>{j.company_name}</td>
-     <Link >
-     <td>detail</td></Link>
+     <Link to="/detail">
+     <td>detail</td>
+     </Link>
    </tr>
           </tbody>
           
           )}
-          </div>
+</Table>
           </>
      )
      }
