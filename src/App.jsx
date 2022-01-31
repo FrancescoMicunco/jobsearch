@@ -5,7 +5,6 @@ import Detail from './pages/Details';
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import { useDebounce } from 'use-debounce'
-import { setJobsAction } from './redux/actions';
 import {useSelector, useDispatch} from 'react-redux'
 import { getJobsAction } from '../src/redux/actions'
 
@@ -18,7 +17,7 @@ function App() {
 const [search, setSearch]= useState("")
 
 const dispatch = useDispatch()
-const jobs = useSelector(state=>state.jobs.data)
+// const jobs = useSelector(state=>state.jobs.data)
     
 
 useEffect(()=>{
@@ -43,10 +42,7 @@ dispatch(getJobsAction())
                 <hr />
                 <Row style={{ display: "flex" }}>
                     <Col sm={12} className='text-center' style={{ marginRight: "3rem", marginTop: "3rem" }}>
-                        <Form onKeyDown={(e) => {if(e.key === 'Enter'){
-                            console.log("enter key")
-                            
-                            }}}>
+                        <Form>
                             <Form.Control
                                 className="mb-2 mr-sm-2"
                                 id="search"
@@ -58,7 +54,7 @@ dispatch(getJobsAction())
                         </Form>
                     </Col>
                     <Col sm={12} className='text-center'>
-                        {/* <JobList jobs={jobs} search={search} /> */}
+                        <JobList search={search} />
                     </Col>
                 </Row>
                 <Routes>

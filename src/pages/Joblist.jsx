@@ -1,31 +1,35 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-
-
+import { useState, useEffect } from 'react'
+import { getJobsAction } from '../redux/actions'
+import {useSelector, useDispatch} from 'react-redux'
 
 const Joblist = () => {
-
+     const dispatch = useDispatch()
+     const jobs = useSelector(state=>state.jobs.data)
+     console.log("this is the job", jobs)
+         
+     useEffect(()=>{
+     dispatch(getJobsAction())
+     },[])
+     
       
 
      // const navigate = useNavigate()
      // const [selectedCompany, setSelectedCompany] = useState(null)
 
 
-     // const handleSelect = (index) => {
-     //      const selected = jobs.filter(i => i === index)
-     //      setSelectedCompany(selected)
+     const handleSelect = () => {
           
-     //      navigate(`/${selectedCompany}`)
-
-     // }
+console.log("this works on joblist")
+     }
 
 
      return (
           <>
 <h1>Job List</h1>
-               {/* <Table striped bordered hover>
+               <Table striped bordered hover>
                     <thead>
                          <tr>
                               <th>Title</th>
@@ -46,7 +50,7 @@ const Joblist = () => {
                          </tbody>
 
                     )}
-               </Table> */}
+               </Table>
           </>
      )
 }

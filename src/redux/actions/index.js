@@ -8,7 +8,6 @@ export const getJobsAction = () => {
             const res = await fetch(`https://strive-jobs-api.herokuapp.com/jobs`)
             if (res.ok) {
                 const jobs = await res.json()
-                console.log("those are Jobs", jobs)
                 dispatch({
                     type: GET_JOBS,
                     payload: jobs
