@@ -25,7 +25,7 @@ const persistedReducer = persistReducer(persistConfig, mainReducer)
 
 
 
-let configureStore = createStore(
+export let configureStore = createStore(
     persistedReducer,
     initialState,
     composeThatWorks(applyMiddleware(thunk))
