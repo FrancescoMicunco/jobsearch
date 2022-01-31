@@ -31,4 +31,4 @@ let configureStore = createStore(
     composeThatWorks(applyMiddleware(thunk))
 )
 
-export default persistor = persistStore(configureStore)
+export const persistor = persistStore(configureStore)
