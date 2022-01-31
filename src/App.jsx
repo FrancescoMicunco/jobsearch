@@ -30,7 +30,7 @@ const [jobs, setJobs] = useState([])
     const getJobs = async () => {
         
         try {
-            const res = await fetch(`https://strive-jobs-api.herokuapp.com/jobs?=search${search}`)
+            const res = await fetch(`https://strive-jobs-api.herokuapp.com/jobs?search=${search}`)
             if (res.ok) {
                 const data = await res.json()
                 console.log(data)
@@ -65,7 +65,10 @@ getJobs()
                 <hr />
                 <Row style={{ display: "flex" }}>
                     <Col sm={12} className='text-center' style={{ marginRight: "3rem", marginTop: "3rem" }}>
-                        <Form onKeyDown={(e) => {if(e.key === 'Enter'){setSearch(e.target.value)}}}>
+                        <Form onKeyDown={(e) => {if(e.key === 'Enter'){
+                            console.log("enter key")
+                            setSearch(e.target.value)
+                            }}}>
                             <Form.Control
                                 className="mb-2 mr-sm-2"
                                 id="search"
