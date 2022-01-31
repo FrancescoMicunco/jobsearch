@@ -1,18 +1,19 @@
-import { SET_JOBS } from '../actions'
+import { GET_JOBS, GET_ERROR } from '../actions'
 import { initialState } from '../store'
 
 
 const mainReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_JOBS:
+        case GET_JOBS:
             return {
                 ...state,
-                jobs: {
-                    ...state.jobs,
-                    jobs: []
-                }
+                jobs: action.payload
             }
-
+        case GET_ERROR:
+            return {
+                ...state,
+                errorCode: action.payload,
+            }
 
         default:
             return state

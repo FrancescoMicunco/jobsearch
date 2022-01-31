@@ -1,21 +1,22 @@
-import { createStore } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import mainReducer from '../reducer'
+import thunk from 'redux-thunk'
+
+
+const composeThatWorks = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE || compose
+
 
 export const initialState = {
 
     jobs: {
         jobs: []
     },
-    search: {
-        search: ''
-    },
 }
 
 let configureStore = createStore(
     mainReducer,
     initialState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-
+    composeThatWorks(applyMiddleware(thunk))
 )
 
 export default configureStore
