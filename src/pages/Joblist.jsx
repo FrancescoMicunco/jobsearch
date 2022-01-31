@@ -16,15 +16,11 @@ const Joblist = () => {
      
       
 
-     // const navigate = useNavigate()
+     const navigate = useNavigate()
      // const [selectedCompany, setSelectedCompany] = useState(null)
 
 
-     const handleSelect = () => {
-          
-console.log("this works on joblist")
-     }
-
+     
 
      return (
           <>
@@ -40,15 +36,11 @@ console.log("this works on joblist")
                     {jobs.map((j, i) =>
                          <tbody>
                               <tr key={i}>
-
                                    <td>{j.title}</td>
                                    <td>{j.company_name}</td>
-
-                                   <td onClick={(i) => handleSelect(i)} style={{ cursor: 'pointer' }}>detail</td>
-
+                                   <td onClick={() => navigate(`/${j.company_name}`)} style={{ cursor: 'pointer' }}>detail</td>
                               </tr>
                          </tbody>
-
                     )}
                </Table>
           </>

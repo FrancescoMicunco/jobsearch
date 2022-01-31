@@ -13,27 +13,17 @@ import { getJobsAction } from '../src/redux/actions'
 
 function App() {
 
-    // const debounceSearch = useDebounce(search, 500);
+   
 const [search, setSearch]= useState("")
-
 const dispatch = useDispatch()
-// const jobs = useSelector(state=>state.jobs.data)
+
     
 
-useEffect(()=>{
-dispatch(getJobsAction())
-},[])
+// useEffect(()=>{
+// dispatch(getJobsAction())
+// },[])
 
 
-
-//     useEffet(useCallback(() => {
-//         if (debounceSearch) {
-//             getJobs(search)
-//         } else {
-// setSearch("")
-//         }
-
-//     }, [debounceSearch]))
 
     return (
         <BrowserRouter>
