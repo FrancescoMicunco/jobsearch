@@ -33,9 +33,9 @@ const Joblist = () => {
                               <th>Detail</th>
                          </tr>
                     </thead>
-                    {jobs.map((j, i) =>
-                         <tbody>
-                              <tr key={i}>
+                    {jobs?.map((j, i) =>
+                         <tbody key={i}>
+                              <tr >
                                    <td>{j.title}</td>
                                    <td>{j.company_name}</td>
                                    <td onClick={() => navigate(`/${j.company_name}`)} style={{ cursor: 'pointer' }}>detail</td>
