@@ -43,13 +43,11 @@ const dispatch = useDispatch()
                             />
                         </Form>
                     </Col>
-                    <Col sm={12} className='text-center'>
-                        <JobList search={search} />
-                    </Col>
+                    
                 </Row>
                 <Routes>
-                    <Route path='/' component={<JobList />} />
-                    <Route path='/company/:detail' component={<Detail />} />
+                    <Route exact path='/' element={<JobList />} />
+                    <Route exact path='/company' element={<Detail />} />
                 </Routes>
             </Container>
         </BrowserRouter>
