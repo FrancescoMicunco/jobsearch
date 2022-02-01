@@ -1,4 +1,4 @@
-import { GET_JOBS, GET_ERROR } from '../actions'
+import { GET_JOBS, GET_ERROR, ADD_TO_FAV } from '../actions'
 import { initialState } from '../store'
 
 
@@ -13,6 +13,10 @@ const mainReducer = (state = initialState, action) => {
             return {
                 ...state,
                 errorCode: action.payload,
+            }
+        case ADD_TO_FAV:
+            return {
+                isFavourite: action.payload
             }
 
         default:

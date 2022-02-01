@@ -12,6 +12,9 @@ export const initialState = {
     jobs: {
         jobs: []
     },
+    isFavourite: {
+        isFavourite: false
+    }
 }
 
 

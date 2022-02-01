@@ -1,5 +1,6 @@
 export const GET_JOBS = 'GET_JOBS'
 export const GET_ERROR = 'GET_ERROR'
+export const ADD_TO_FAV = 'ADD_TO_FAV'
 
 export const getJobsAction = () => {
     return async(dispatch) => {
@@ -23,4 +24,11 @@ export const getJobsAction = () => {
             console.log("server error")
         }
     }
+}
+
+export const addToFavourite = (dispatch) => {
+    dispatch({
+        type: ADD_TO_FAV,
+
+    })
 }
