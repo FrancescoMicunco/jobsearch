@@ -47,7 +47,7 @@ const dispatch = useDispatch()
                 </Row>
                 <Routes>
                     <Route exact path='/' element={<JobList />} />
-                    <Route exact path='/company' element={<Detail />} />
+                    <Route exact path='/:company' element={<Detail />} />
                 </Routes>
             </Container>
         </BrowserRouter>
