@@ -1,9 +1,11 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { getJobsAction } from '../redux/actions'
 import {useSelector, useDispatch} from 'react-redux'
+import {FaRegHeart } from 'react-icons/fa'
+
 
 const Joblist = () => {
      const dispatch = useDispatch()
@@ -17,10 +19,7 @@ const Joblist = () => {
       
 
      const navigate = useNavigate()
-     // const [selectedCompany, setSelectedCompany] = useState(null)
-
-
-     
+         
 
      return (
           <>
@@ -36,9 +35,9 @@ const Joblist = () => {
                     {jobs?.map((j, i) =>
                          <tbody key={i}>
                               <tr >
-                                   <td>{j.title}</td>
-                                   <td>{j.company_name}</td>
-                                   <td onClick={() => navigate(`/${j.company_name}`)} style={{ cursor: 'pointer' }}>detail</td>
+                                   <td onClick={() => navigate(`/${j.company_name}`)} style={{ cursor: 'pointer' }}>{j.title}</td>
+                                   <td onClick={() => navigate(`/${j.company_name}`)} style={{ cursor: 'pointer' }}>{j.company_name}</td>
+                                   <td FaHeart  ><FaRegHeart/></td>
                               </tr>
                          </tbody>
                     )}
